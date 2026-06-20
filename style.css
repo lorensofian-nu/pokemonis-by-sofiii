@@ -62,3 +62,13 @@ h1 {
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
+
+ul{
+    text-align: left;
+    list-style-type: none;
+}
+
+#pokemon-image.visible {
+    opacity: 1;
+    transform: scale(1.1); 
+}
