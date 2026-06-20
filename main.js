@@ -24,8 +24,8 @@ const pokemonSelected = async (pokemonUrl) => {
         const pokemonsAbs = document.getElementById("pokemon-abs");
         const titleAbilities = document.getElementById("title-abilities");
         const pokemonInfo = document.getElementById("pokemon-info");
-        const pokemonType = document.getElementById("pokemon-types");
-        const tittletype = document.getElementById("title-types");
+        const pokemonType = document.getElementById("pokemon-type");
+        const tittletype = document.getElementById("title-type");
         const tittleinfo = document.getElementById("title-info");
 
         if (pokemonUrl === "") {
@@ -35,9 +35,9 @@ const pokemonSelected = async (pokemonUrl) => {
             pokemonsAbs.innerHTML = "";
             titleAbilities.textContent = "";
             pokemonInfo.style.display = "none";
-            pokemonType.textContent = "";
-            tittleinfo.textContent = "";
+            pokemontype.textContent = "";
             tittletype.textContent = "";
+            tittleinfo.textContent = "";
         } else {
             const response = await fetch(pokemonUrl).then(response => response.json());
             pokemonInfo.style.display = "inline-block";
@@ -45,7 +45,6 @@ const pokemonSelected = async (pokemonUrl) => {
             pokemonName.textContent = response.name;
 
             pokemonStats.innerHTML = "";
-            tittleinfo.textContent = "Informaccion del pokemon: ";
 
             response.stats.forEach(stat => {
                 const li = document.createElement("li");
@@ -62,8 +61,8 @@ const pokemonSelected = async (pokemonUrl) => {
                 li.textContent = data.ability.name;
                 pokemonsAbs.appendChild(li);
             });
-
-            tittletype.textContent = "Tipos de pokemonis: ";
+        
+                  tittletype.textContent = "Tipos de pokemonis: ";
 
             pokemonImage.addEventListener("mouseenter", () => {
                 response.types.forEach((data) => {
@@ -78,7 +77,6 @@ const pokemonSelected = async (pokemonUrl) => {
                 pokemonImage.style.opacity = "100%";
             });
         }
-
     } catch (error) {
         console.error("Error fetching pokemon details:", error);
     }
