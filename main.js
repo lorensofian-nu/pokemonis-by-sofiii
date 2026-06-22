@@ -54,17 +54,22 @@ const pokemonSelected = async (pokemonUrl) => {
             })
 
             pokemonsAbs.innerHTML = "";
-            titleAbilities.textContent = "Habilidades del pokemon: ";
+            titleAbilities.textContent = "abilities ";
+
 
             response.abilities.forEach(data => {
                 const li = document.createElement("li");
                 li.textContent = data.ability.name;
                 pokemonsAbs.appendChild(li);
             });
-        
-                  tittletype.textContent = "Tipos de pokemonis: ";
+
+            tittletype.textContent = "stats ";
+
 
             pokemonImage.addEventListener("mouseenter", () => {
+
+                pokemonType.innerHTML = "";
+
                 response.types.forEach((data) => {
                     const li = document.createElement("li");
                     li.textContent = data.type.name;
@@ -74,6 +79,7 @@ const pokemonSelected = async (pokemonUrl) => {
 
             pokemonImage.addEventListener("mouseleave", () => {
                 pokemonType.innerHTML = "";
+
                 pokemonImage.style.opacity = "100%";
             });
         }
